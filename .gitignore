@@ -1,5 +1,13 @@
 __pycache__/
 *.py[cod]
+.venv/
+.pytest_cache/
+.env
+.matted_squad
+squad.db
+squad.db-shm
+squad.db-wal
+Playbooks/.cache/
 workspace/*.db
 workspace/*.db-shm
 workspace/*.db-wal
