@@ -1,13 +1,50 @@
+# Python
 __pycache__/
 *.py[cod]
+*$py.class
+*.egg-info/
 .venv/
-.pytest_cache/
+.venv39/
+venv/
+.eggs/
+
+# Environment
 .env
-.matted_squad
+
+# Database
 squad.db
+*.db
 squad.db-shm
 squad.db-wal
-Playbooks/.cache/
 workspace/*.db
 workspace/*.db-shm
 workspace/*.db-wal
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.md
+
+# External dependencies (managed separately)
+external/
+
+# Logs
+*.log
+
+# Build
+build/
+dist/
+
+# Internal state
+.matted_squad
+.matted/
+workspace/
+Playbooks/.cache/
+
+# Testing
+.pytest_cache/
