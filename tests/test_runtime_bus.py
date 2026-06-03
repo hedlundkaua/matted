@@ -21,7 +21,7 @@ def test_init_db_creates_runtime_tables(tmp_path: Path) -> None:
     finally:
         con.close()
 
-    assert {"ui_events", "ui_commands", "agent_processes"} <= tables
+    assert {"ui_events", "ui_commands", "agent_processes", "llm_usage"} <= tables
 
 
 def test_sqlite_event_bus_drains_incrementally(tmp_path: Path) -> None:
@@ -60,4 +60,3 @@ def test_sqlite_command_bus_claims_once_and_acks(tmp_path: Path) -> None:
         con.close()
 
     assert row[0] == "done"
-

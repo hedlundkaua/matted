@@ -4,6 +4,34 @@ from pathlib import Path
 from .codex import CodexProvider
 from .openrouter import OpenRouterProvider
 
+
+def describe_provider(provider: any) -> str:
+    name = provider.__class__.__name__
+    parts = [name]
+
+    model = getattr(provider, "model", None)
+    if model:
+        parts.append(f"model={model}")
+
+    agent = getattr(provider, "agent", None)
+    if agent:
+        parts.append(f"agent={agent}")
+
+    mode_fn = getattr(provider, "_mode", None)
+    if callable(mode_fn):
+        parts.append(f"mode={mode_fn()}")
+
+    server_url = getattr(provider, "_server_url", None)
+    if server_url:
+        parts.append(f"url={server_url}")
+
+    root_dir = getattr(provider, "root_dir", None)
+    if root_dir:
+        parts.append(f"root={root_dir}")
+
+    return " ".join(parts)
+
+
 class ProviderFactory:
     """
     Factory to instantiate the correct LLM provider.
